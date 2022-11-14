@@ -1,7 +1,11 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+
+
 class day(models.Model):
-    date = models.DateField(primary_key=True)
+
+    id = models.AutoField(primary_key=True)
+    date = models.DateField()
 
     #symptoms
     fatigue = models.IntegerField(default=0)
@@ -16,9 +20,9 @@ class day(models.Model):
     daySlug = models.SlugField(unique=True, default='day-')
 
     def save(self, *args, **kwargs):
-        self.daySlug = (slugify(self.daySlug))
+        self.daySlug = (slugify(self.id))
         super(day, self).save(*args, **kwargs)
 
     def __str__(self):
-            return self.date    
+            return str(self.date)    
 

@@ -25,6 +25,6 @@ def stats(request):
     return HttpResponse("Hello, world. You're at the tracker stats.")
 
 
-def day(request, date_slug):
+def date(request, date_slug):
     return HttpResponse("Hello, world. You're at the tracker stats.")
 
