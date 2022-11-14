@@ -1,5 +1,5 @@
 from django.db import models
-from django.template.defaultfilters import join, slugify
+from django.template.defaultfilters import slugify
 class day(models.Model):
     date = models.DateField(primary_key=True)
 
