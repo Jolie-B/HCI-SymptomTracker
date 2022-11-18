@@ -70,7 +70,7 @@ def populate():
 # Model Helper Functions
 
 def add_day(date,fatigue, nausea, bloated, dairy, gluten, sugar):
-    d = day.objects.get_or_create(date=date, fatigue=fatigue, nausea=nausea, bloated=bloated, dairy=dairy, gluten=gluten, sugar=sugar)[0]
+    d = Day.objects.get_or_create(date=date, fatigue=fatigue, nausea=nausea, bloated=bloated, dairy=dairy, gluten=gluten, sugar=sugar)[0]
     d.date = date
     d.fatigue = fatigue
     d.nausea = nausea

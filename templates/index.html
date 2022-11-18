@@ -61,59 +61,55 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-md navbar-light" style="background: #FFA500">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#" id="navbar-main-txt">Food Tracking Prototype</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="container">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a id="link-txt" class="nav-link active" aria-current="page" href="#">home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="link-txt" class="nav-link" href="#">tracker</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="link-txt" class="nav-link" href="#">calendar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="link-txt" class="nav-link" href="#">stats</a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-          </nav>
 
-          <div class="container">
-            <div class="row mt-5">
-                <div class="col-2 d-flex justify-content-center"><button id="arrows" class="btn btn-dark"><</button></div>
-                <div id="main-title" class="col-8 d-flex justify-content-center">Monday 14th November 2022</div>
-                <div class="col-2 d-flex justify-content-center"><button id="arrows" class="btn btn-dark">></button></div>
-            </div>
+      <form id="day_form" method="post" enctype="multipart/form-data"action="{% url 'index' %}">
+        {% csrf_token %}
 
-            <div class="card mt-5">
-                <div class="card-header bg-primary" style="color: white;">
-                  <b>Foods</b>
-                </div>
-                <div class="card-body">
-                  foods go here?
-                </div>
-              </div>
+        <form id="day_form" method="post" enctype="multipart/form-data"action="{% url 'index' %}">
+          {% csrf_token %}
+
+        <label for="fatigue"><b>fatigue: </b></label>
+        <input type="int" name="fatigue" value="{{ todayData.fatigue }}" size="7"/>
+
+        <br />
+        <br />
+
+        <label for="sugar"><b>sugar: </b></label>
+        <input type="int" name="sugar" value="{{ todayData.sugar }}" size="7"/>
+
+        <br />
+        <br />
+
+        <label for="nausea"><b>nausea: </b></label>
+        <input type="int" name="nausea" value="{{ todayData.nausea }}" size="7"/>
+
+        <br />
+        <br />
+
+        <label for="dairy"><b>dairy: </b></label>
+        <input type="int" name="dairy" value="{{ todayData.dairy }}" size="7"/>
+
+        <br />
+        <br />
+
+        <label for="gluten"><b>gluten: </b></label>
+        <input type="int" name="gluten" value="{{ todayData.gluten }}" size="7"/>
+
+        <br />
+        <br />
+
+        <label for="bloated"><b>bloated: </b></label>
+        <input type="int" name="bloated" value="{{ todayData.bloated }}" size="7"/>
+
+        <br />
+        <br />
+
+        <input type="submit" value="Submit" />
+
+        </form>
+        </div>
 
 
-              <div class="card mt-2">
-                <div class="card-header bg-primary" style="color: white;">
-                  <b>Symptoms</b>
-                </div>
-                <div class="card-body">
-                  symptoms go here?
-                </div>
-              </div>
-          </div>
         
     </body>
 </html>

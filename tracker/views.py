@@ -6,12 +6,38 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from tracker.models import *
 from django.db.models import Sum, F
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
+
+import datetime
+
+from tracker.forms import *
 
 
 def index(request):
-    return render(request, 'index.html')
+    context_dict = {}
+
+    #mockup just a day in the future, spesifics will be chosen later
+    #basically choosen that today is the last day of december
+    today = datetime.date(2022, 12, 31)
+    context_dict['date'] = today
+
+    dayDataToday,_ = Day.objects.get_or_create(date=today)
+
+    context_dict['todayData'] = dayDataToday
+  
+    form = DayForm(request.POST, instance=dayDataToday)
+    context_dict['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            dayDataToday = form.save(commit=False)
+            dayDataToday.save()
+            return render(request, 'index.html', context_dict)
+        else:
+            print(form.errors)
+    return render(request, 'index.html', context_dict)
+
+
+
 
 
 def callendar(request):

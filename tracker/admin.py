@@ -4,4 +4,4 @@ from tracker.models import *
 # Register your models here.
 
 
-admin.site.register(day)
+admin.site.register(Day)

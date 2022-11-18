@@ -2,7 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 
 
-class day(models.Model):
+class Day(models.Model):
 
     id = models.AutoField(primary_key=True)
     date = models.DateField()
@@ -20,9 +20,8 @@ class day(models.Model):
     daySlug = models.SlugField(unique=True, default='day-')
 
     def save(self, *args, **kwargs):
-        self.daySlug = (slugify(self.id))
-        super(day, self).save(*args, **kwargs)
+        self.daySlug = (slugify(self.date))
+        super(Day, self).save(*args, **kwargs)
 
     def __str__(self):
-            return str(self.date)    
-
+            return str(self.date)
