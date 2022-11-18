@@ -38,8 +38,6 @@ def index(request):
 
 
 
-
-
 def callendar(request):
     return HttpResponse("Hello, world. You're at the tracker callendar.")
 
@@ -49,5 +47,25 @@ def stats(request):
 
 
 def date(request, date_slug):
-    return HttpResponse("Hello, world. You're at the tracker stats.")
+
+    context_dict = {}
+
+    #mockup just a day in the future, spesifics will be chosen later
+    #basically choosen that today is the last day of december
+    today, _ = Day.objects.get_or_create(daySlug = date_slug)
+    context_dict['date'] = date_slug
+
+    context_dict['todayData'] = today
+  
+    form = DayForm(request.POST, instance=today)
+    context_dict['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            today = form.save(commit=False)
+            today.save()
+            return redirect(reverse('tool:day', args=[date_slug]))
+        else:
+            print(form.errors)
+    return redirect(reverse('tool:day', args=[date_slug]))
 
