@@ -11,6 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet"> 
         <style>
 
@@ -22,94 +23,230 @@
                 float: right;
             }
 
-            #link-txt {
+            #link-txt, #navbar-main-txt {
                 color: white;
             }
 
-            #link-txt:hover {
-                color: black;
-                font-weight: bold;
+
+            .col {
+                width: 50px;
+                height: 150px;
+                font-family: 'Ubuntu', sans-serif;
             }
 
+            .col-border {
+                border-right: 0.5px solid lightgrey;
+            }
 
-            #navbar-main-txt {
+            .wk-labels {
+                height: 50px;
+                text-align: center;
+                font-weight: bold;
+                border-bottom: 1px solid black;
+            }
+
+            .diff-month {
+                background: #ededed;
+            }
+
+            .row-breakup {
+                margin-top: 10px;
+            }
+
+            .calendar-day:hover {
+                background: #fecd00;
                 color: white;
             }
-
-            #navbar-main-txt:hover {
-                color: black;
-                font-weight: bold;
-            }
-
-            @media (max-width: 800px) {
-                #navbarSupportedContent{
-                    float: none;
-                }
-            }   
-
-            #arrows {
-                font-size: 40px;
-            }
-
-            #main-title {
-                font-size: 40px;
-                font-weight: bold;
-            }
+            
 
         </style>
    
     </head>
     <body>
 
+        <nav class="navbar navbar-expand-md navbar-light" style="background: #fecd00">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#" id="navbar-main-txt">Food Tracking Prototype</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="container">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a id="link-txt" class="nav-link" href="{% url 'index' %}">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="link-txt" class="nav-link" href="{% url 'stats' %}">stats</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+          </nav>
 
-      <form id="day_form" method="post" enctype="multipart/form-data"action="{% url 'index' %}">
-        {% csrf_token %}
+         
 
-        <form id="day_form" method="post" enctype="multipart/form-data"action="{% url 'index' %}">
-          {% csrf_token %}
+          <div class="container mt-2" style="text-align: center;">
+                <h1>NOVEMBER 2022</h1>
+          </div>
 
-        <label for="fatigue"><b>fatigue: </b></label>
-        <input type="int" name="fatigue" value="{{ todayData.fatigue }}" size="7"/>
+          <div class="container-fluid mt-5">
+            <ul class="list-group list-group-horizontal justify-content-center">
+                <li class="list-group-item"><button class='btn indicators nausea'>&nbsp;&nbsp;</button> &nbsp;&nbsp;Dairy</li>
+                <li class="list-group-item"><button class='btn indicators gluten'>&nbsp;&nbsp;</button>  &nbsp;&nbsp;Gluten</li>
+                <li class="list-group-item"><button class='btn indicators sugar'>&nbsp;&nbsp;</button>  &nbsp;&nbsp;Sugar</li>
+                <li class="list-group-item"><button class='btn indicators nausea'>&nbsp;&nbsp;</button>  &nbsp;&nbsp;Nausea</li>
+                <li class="list-group-item"><button class='btn indicators fatigue'>&nbsp;&nbsp;</button>  &nbsp;&nbsp;Fatigue</li>
+                <li class="list-group-item"><button class='btn indicators bloated'>&nbsp;&nbsp;</button>  &nbsp;&nbsp;Bloating</li>
+              </ul>
+          </div>
+          <div class="container mt-5">
+            <div class="row shadow bg-white rounded">
+                <div class="col wk-labels col-border"><span class="wk-labels-span">Mon</span></div>
+                <div class="col wk-labels col-border"><span class="wk-labels-span">Tue</span></div>
+                <div class="col wk-labels col-border"><span class="wk-labels-span">Wed</span></div>
+                <div class="col wk-labels col-border"><span class="wk-labels-span">Thu</span></div>
+                <div class="col wk-labels col-border"><span class="wk-labels-span">Fri</span></div>
+                <div class="col wk-labels col-border"><span class="wk-labels-span">Sat</span></div>
+                <div class="col wk-labels"><span class="wk-labels-span">Sun</span></div>
 
-        <br />
-        <br />
+              </div>
+              <div class="row shadow bg-white rounded">
+                <!-- FORMAT FOR SLUGS: DDMMYY -->
+                <div name="311022" onclick="document.location = '/tracker/311022'" class="col diff-month col-border calendar-day">31</div>
+                <div name="011122" onclick="document.location = '/tracker/011122'" class="col col-border calendar-day">1</div>
+                <div name="021122" onclick="document.location = '/tracker/021122'" class="col col-border calendar-day">2</div>
+                <div name="031122" onclick="document.location = '/tracker/031122'" class="col col-border calendar-day">3</div>
+                <div name="041122" onclick="document.location = '/tracker/041122'" class="col col-border calendar-day">4</div>
+                <div name="051122" onclick="document.location = '/tracker/051122'" class="col col-border calendar-day">5</div>
+                <div name="061122" onclick="document.location = '/tracker/061122'" class="col calendar-day">6</div>
+              </div>
+              <div class="row row-breakup shadow bg-white rounded">
+                <div name="071122" onclick="document.location = '/tracker/071122'" class="col col-border calendar-day">7</div>
+                <div name="081122" onclick="document.location = '/tracker/081122'" class="col col-border calendar-day">8</div>
+                <div name="091122" onclick="document.location = '/tracker/091122'" class="col col-border calendar-day">9</div>
+                <div name="101122" onclick="document.location = '/tracker/101122'" class="col col-border calendar-day">10</div>
+                <div name="111122" onclick="document.location = '/tracker/111122'" class="col col-border calendar-day">11</div>
+                <div name="121122" onclick="document.location = '/tracker/121122'" class="col col-border calendar-day">12</div>
+                <div name="131122" onclick="document.location = '/tracker/131122'" class="col col-border calendar-day">13</div>
+              </div>            
+              <div class="row row-breakup shadow bg-white rounded">
+                <div name="141122" onclick="document.location = '/tracker/141122'" class="col col-border calendar-day">14</div>
+                <div name="151122" onclick="document.location = '/tracker/151122'" class="col col-border calendar-day">15</div>
+                <div name="161122" onclick="document.location = '/tracker/161122'" class="col col-border calendar-day">16</div>
+                <div name="171122" onclick="document.location = '/tracker/171122'" class="col col-border calendar-day">17</div>
+                <div name="181122" onclick="document.location = '/tracker/181122'" class="col col-border calendar-day">18</div>
+                <div name="191122" onclick="document.location = '/tracker/191122'" class="col col-border calendar-day">19</div>
+                <div name="201122" onclick="document.location = '/tracker/201122'" class="col calendar-day">20</div>
+              </div>            
+              <div class="row row-breakup shadow bg-white rounded">
+                <div name="211122" onclick="document.location = '/tracker/211122'" class="col col-border calendar-day">21</div>
+                <div name="221122" onclick="document.location = '/tracker/221122'" class="col col-border calendar-day">22</div>
+                <div name="231122" onclick="document.location = '/tracker/231122'" class="col col-border calendar-day">23</div>
+                <div name="241122" onclick="document.location = '/tracker/241122'" class="col col-border calendar-day">24</div>
+                <div name="251122" onclick="document.location = '/tracker/251122'" class="col col-border calendar-day">25</div>
+                <div name="261122" onclick="document.location = '/tracker/261122'" class="col col-border calendar-day">26</div>
+                <div name="271122" onclick="document.location = '/tracker/271122'" class="col col-border calendar-day">27</div>
+              </div>            
+              <div class="row row-breakup shadow bg-white rounded">
+                <div name="281122" onclick="document.location = '/tracker/281122'" class="col col-border calendar-day">28</div>
+                <div name="291122" onclick="document.location = '/tracker/291122'" class="col col-border calendar-day">29</div>
+                <div name="301122" onclick="document.location = '/tracker/301122'" class="col col-border calendar-day">30</div>
+                <div name="011222" onclick="document.location = '/tracker/011222'" class="col col-border calendar-day diff-month">1</div>
+                <div name="021222" onclick="document.location = '/tracker/021222'" class="col col-border calendar-day diff-month">2</div>
+                <div name="031222" onclick="document.location = '/tracker/031222'" class="col col-border calendar-day diff-month">3</div>
+                <div name="041222" onclick="document.location = '/tracker/041222'" class="col col-border calendar-day diff-month">4</div>
+              </div>            
+          </div>
 
-        <label for="sugar"><b>sugar: </b></label>
-        <input type="int" name="sugar" value="{{ todayData.sugar }}" size="7"/>
+          <br />
 
-        <br />
-        <br />
+          <style>
+            .indicators {
+                margin-left: 5px;
+            }
 
-        <label for="nausea"><b>nausea: </b></label>
-        <input type="int" name="nausea" value="{{ todayData.nausea }}" size="7"/>
+            .gluten {
+                background: #6716b4;
+            }
 
-        <br />
-        <br />
+            .dairy {
+                background: #090446; 
+            }
 
-        <label for="dairy"><b>dairy: </b></label>
-        <input type="int" name="dairy" value="{{ todayData.dairy }}" size="7"/>
+            .sugar {
+                background: #073e17;
+            }
 
-        <br />
-        <br />
+            .bloated {
+                background: #fee2e2;
 
-        <label for="gluten"><b>gluten: </b></label>
-        <input type="int" name="gluten" value="{{ todayData.gluten }}" size="7"/>
+            }
 
-        <br />
-        <br />
+            .fatigue {
+                background: #c3c9fe;
 
-        <label for="bloated"><b>bloated: </b></label>
-        <input type="int" name="bloated" value="{{ todayData.bloated }}" size="7"/>
+            }
 
-        <br />
-        <br />
+            .nausea {
+                background: #d4f5c8;
+            }
 
-        <input type="submit" value="Submit" />
+          </style>
+          <script>
+            {% for day in data %}
+               var gluten = {{day.gluten}}
+               var dairy = {{day.dairy}}
+               var sugar = {{day.sugar}}
 
-        </form>
-        </div>
+               var nausea = {{day.nausea}}
+               var bloating = {{day.bloated}}
+               var fatigue = {{day.fatigue}}
+               $("div[name={{day.date}}]").append("<br /><br /><br />");
 
 
+               if(dairy > 0){
+                $("div[name={{day.date}}]").append("<button class='btn indicators dairy' data-bs-toggle='tooltip' data-bs-placement='top' title='Dairy Intake' />");
+               }
+
+               if(gluten > 0){
+                $("div[name={{day.date}}]").append("<button class='btn indicators gluten' data-bs-toggle='tooltip' data-bs-placement='top' title='Gluten Intake' />");
+               } 
+
+               if(sugar > 0){
+                $("div[name={{day.date}}]").append("<button class='btn indicators sugar' data-bs-toggle='tooltip' data-bs-placement='top' title='Sugar Intake' />");
+               }
+
+               $("div[name={{day.date}}]").append("<br />");
+
+               if (nausea > 0){
+                $("div[name={{day.date}}]").append("<button class='btn indicators nausea' data-bs-toggle='tooltip' data-bs-placement='top' title='Nausea' />");
+               }
+
+               if (fatigue > 0){
+                $("div[name={{day.date}}]").append("<button class='btn indicators fatigue' data-bs-toggle='tooltip' data-bs-placement='top' title='Fatigue'/>");
+               }
+
+               if (bloating > 0){
+                $("div[name={{day.date}}]").append("<button class='btn indicators bloated' data-bs-toggle='tooltip' data-bs-placement='top' title='Bloating' />");
+               }
+               
+
+            {% endfor %}
+
+
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+
+
+
+
+          </script>
+
+          
         
     </body>
 </html>

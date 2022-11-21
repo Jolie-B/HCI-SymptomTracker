@@ -14,58 +14,59 @@ from tracker.forms import *
 
 def index(request):
     context_dict = {}
+    context_dict['data'] = Day.objects.all()
 
-    #mockup just a day in the future, spesifics will be chosen later
-    #basically choosen that today is the last day of december
-    today = datetime.date(2022, 12, 31)
-    context_dict['date'] = today
 
-    dayDataToday,_ = Day.objects.get_or_create(date=today)
 
-    context_dict['todayData'] = dayDataToday
-  
-    form = DayForm(request.POST, instance=dayDataToday)
-    context_dict['form'] = form
-
-    if request.method == 'POST':
-        if form.is_valid():
-            dayDataToday = form.save(commit=False)
-            dayDataToday.save()
-            return render(request, 'index.html', context_dict)
-        else:
-            print(form.errors)
     return render(request, 'index.html', context_dict)
-
-
-
-def callendar(request):
-    return HttpResponse("Hello, world. You're at the tracker callendar.")
 
 
 def stats(request):
     return HttpResponse("Hello, world. You're at the tracker stats.")
 
 
-def date(request, date_slug):
-
+def date(request, day_slug):
     context_dict = {}
 
-    #mockup just a day in the future, spesifics will be chosen later
-    #basically choosen that today is the last day of december
-    today, _ = Day.objects.get_or_create(daySlug = date_slug)
-    context_dict['date'] = date_slug
+    day = day_slug[0:2]
+    month = day_slug[2:4]
+    year = "20" + day_slug[4:6]
+    context_dict['date'] = day + "/" + month + "/" + year; 
 
-    context_dict['todayData'] = today
-  
-    form = DayForm(request.POST, instance=today)
-    context_dict['form'] = form
+    if Day.objects.filter(date = day_slug).exists():
+        context_dict['existing_data'] = Day.objects.filter(date = day_slug)
+        print("exists", context_dict['existing_data'])
 
+    return render(request, 'day.html', context=context_dict)
+
+
+
+def save_data(request):
     if request.method == 'POST':
-        if form.is_valid():
-            today = form.save(commit=False)
-            today.save()
-            return redirect(reverse('tool:day', args=[date_slug]))
-        else:
-            print(form.errors)
-    return redirect(reverse('tool:day', args=[date_slug]))
+        request.POST._mutable = True
 
+        p = request.POST['date']
+        print(p)
+        dd = p[0:2]
+        mm = p[3:5]
+        yy = p[8:10]
+        request.POST['date'] = dd+mm+yy
+    
+        form = DayForm(request.POST)
+        if form.is_valid():
+            data = form.save(commit=True)
+        else:
+            cleaned = form.cleaned_data
+            if Day.objects.filter(date = request.POST['date']).exists():
+                # already exists, so update existing values
+                obj = Day.objects.filter(date = request.POST['date']);
+                obj.update(
+                    dairy = cleaned['dairy'],
+                    gluten = cleaned['gluten'],
+                    sugar = cleaned['sugar'],  
+                    fatigue = cleaned['fatigue'],
+                    nausea = cleaned['nausea'],
+                    bloated = cleaned['bloated'],  
+                )
+    
+    return redirect(reverse('index'))

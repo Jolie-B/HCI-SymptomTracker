@@ -1,11 +1,8 @@
 from django.db import models
-from django.template.defaultfilters import slugify
 
 
 class Day(models.Model):
-
-    id = models.AutoField(primary_key=True)
-    date = models.DateField()
+    date = models.CharField(max_length=10, unique=True)
 
     #symptoms
     fatigue = models.IntegerField(default=0)
@@ -16,12 +13,6 @@ class Day(models.Model):
     dairy = models.IntegerField(default=0)
     gluten = models.IntegerField(default=0)
     sugar = models.IntegerField(default=0)
-
-    daySlug = models.SlugField(unique=True, default='day-')
-
-    def save(self, *args, **kwargs):
-        self.daySlug = (slugify(self.date))
-        super(Day, self).save(*args, **kwargs)
 
     def __str__(self):
             return str(self.date)

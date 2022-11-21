@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from tracker import views
 
 urlpatterns = [
     path('tracker/', include('tracker.urls')),
+    path('save_data', views.save_data, name='save_data'),
     path('admin/', admin.site.urls),
 ]
