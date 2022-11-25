@@ -1,0 +1,250 @@
+{
+	"1": {
+        "date": "011122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 0,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+	"2": {
+        "date": "021122",   
+        "fatigue": 2,
+        "nausea": 0,
+        "bloated": 0,
+        "dairy": 5,
+        "gluten": 2,
+        "sugar": 0
+	},
+	"3": {
+        "date": "031122",   
+        "fatigue": 0,
+        "nausea": 4,
+        "bloated": 3,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "4": {
+        "date": "041122",   
+        "fatigue": 0,
+        "nausea": 3,
+        "bloated": 4,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "5": {
+        "date": "051122",   
+        "fatigue": 0,
+        "nausea": 3,
+        "bloated": 4,
+        "dairy": 5,
+        "gluten": 5,
+        "sugar": 0
+	},
+    "6": {
+        "date": "061122",   
+        "fatigue": 0,
+        "nausea": 3,
+        "bloated": 3,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 1
+	},
+    "7": {
+        "date": "071122",   
+        "fatigue": 0,
+        "nausea": 3,
+        "bloated": 0,
+        "dairy": 5,
+        "gluten": 4,
+        "sugar": 0
+	},
+    "8": {
+        "date": "081122",   
+        "fatigue": 1,
+        "nausea": 0,
+        "bloated": 0,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "9": {
+        "date": "091122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 0,
+        "dairy": 0,
+        "gluten": 0,
+        "sugar": 0
+	},
+
+    "10": {
+        "date": "101122",   
+        "fatigue": 0,
+        "nausea": 3,
+        "bloated": 3,
+        "dairy": 1,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "11": {
+        "date": "111122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 0,
+        "dairy": 5,
+        "gluten": 5,
+        "sugar": 0
+	},
+
+
+    "12": {
+        "date": "121122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 3,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "13": {
+        "date": "131122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 0,
+        "dairy": 5,
+        "gluten": 2,
+        "sugar": 0
+	},
+    "14": {
+        "date": "141122",   
+        "fatigue":0,
+        "nausea": 2,
+        "bloated": 2,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "15": {
+        "date": "151122",   
+        "fatigue": 2,
+        "nausea": 2,
+        "bloated": 2,
+        "dairy": 5,
+        "gluten": 2,
+        "sugar": 2
+	},
+    "16": {
+        "date": "161122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 0,
+        "dairy": 3,
+        "gluten": 3,
+        "sugar": 0
+	},
+
+    "17": {
+        "date": "171122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 5,
+        "dairy": 1,
+        "gluten": 2,
+        "sugar": 0
+	},
+    "18": {
+        "date": "181122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 5,
+        "dairy": 5,
+        "gluten": 5,
+        "sugar": 0
+	},
+    "19": {
+        "date": "191122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 2,
+        "dairy": 5,
+        "gluten": 3,
+        "sugar": 0
+	},
+    "20": {
+        "date": "201122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 3,
+        "dairy": 5,
+        "gluten": 3,
+        "sugar": 0
+	},
+    "21": {
+        "date": "211122",   
+        "fatigue": 1,
+        "nausea": 1,
+        "bloated": 1,
+        "dairy": 0,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "22": {
+        "date": "221122",   
+        "fatigue": 0,
+        "nausea": 3,
+        "bloated": 4,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "23": {
+        "date": "231122",   
+        "fatigue": 0,
+        "nausea": 2,
+        "bloated": 2,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "24": {
+        "date": "241122",   
+        "fatigue": 0,
+        "nausea": 1,
+        "bloated":2,
+        "dairy": 0,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "25": {
+        "date": "251122",   
+        "fatigue": 0,
+        "nausea": 1,
+        "bloated": 2,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "26": {
+        "date": "261122",   
+        "fatigue": 0,
+        "nausea": 0,
+        "bloated": 1,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	},
+    "28": {
+        "date": "281122",   
+        "fatigue": 0,
+        "nausea": 1,
+        "bloated": 0,
+        "dairy": 5,
+        "gluten": 0,
+        "sugar": 0
+	}
+
+}
