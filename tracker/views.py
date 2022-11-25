@@ -22,7 +22,7 @@ def index(request):
 
 
 def stats(request):
-    return HttpResponse("Hello, world. You're at the tracker stats.")
+    return render(request, 'stats.html')
 
 
 def date(request, day_slug):
