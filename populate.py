@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import string
 import random
@@ -62,7 +64,7 @@ def import_days(filename):
             day['sugar'] = data[item]['sugar']
             day['gluten'] = data[item]['gluten']
             day['bloated'] = data[item]['bloated']
-            days.append(day)
+            days.append(str(day[0:2]) + "/" + str(day[2:4]) + "/" str(day[4:]))
 
     return days,
 

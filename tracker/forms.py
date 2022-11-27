@@ -22,3 +22,8 @@ class DayForm(ModelForm):
         model = Day
         fields = ('date', 'fatigue', 'nausea', 'bloated', 'dairy', 'gluten', 'sugar',)
 
+
+class DateSelect(forms.Form):
+    date_from = forms.CharField()
+    date_to = forms.CharField()
+

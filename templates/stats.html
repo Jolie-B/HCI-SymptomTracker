@@ -37,7 +37,6 @@
 
             .card-header {
                 color: white;
-                background: darkgrey;
             }
 
       
@@ -73,13 +72,41 @@
             <div class="mt-2 border-primary">
                 <div class="row">
                     <div class="col-6">
+                        <form action="{% url 'statsload' %}" method="POST">
+                            {% csrf_token %}
                         <div class="input-group mb-3">
                             <label class="input-group-text" for="inputGroupSelect01">Date From:</label>
-                            <select class="form-select" id="inputGroupSelect01">
-                            <option selected>Choose...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <select name="date_from" class="form-select" id="inputGroupSelect01">
+                            <option value="011122" selected>01/11/22</option>
+                            <option value="021122">02/11/22</option>
+                            <option value="031122">03/11/22</option>
+                            <option value="041122">04/11/22</option>
+                            <option value="051122">05/11/22</option>
+                            <option value="061122">06/11/22</option>
+                            <option value="071122">07/11/22</option>
+                            <option value="081122">08/11/22</option>
+                            <option value="091122">09/11/22</option>
+                            <option value="101122">10/11/22</option>
+                            <option value="111122">11/11/22</option>
+                            <option value="121122">12/11/22</option>
+                            <option value="131122">13/11/22</option>
+                            <option value="141122">14/11/22</option>
+                            <option value="151122">15/11/22</option>
+                            <option value="161122">16/11/22</option>
+                            <option value="171122">17/11/22</option>
+                            <option value="181122">18/11/22</option>
+                            <option value="191122">19/11/22</option>
+                            <option value="201122">20/11/22</option>
+                            <option value="211122">21/11/22</option>
+                            <option value="221122">22/11/22</option>
+                            <option value="231122">23/11/22</option>
+                            <option value="241122">24/11/22</option>
+                            <option value="251122">25/11/22</option>
+                            <option value="261122">26/11/22</option>
+                            <option value="271122">27/11/22</option>
+                            <option value="281122">28/11/22</option>
+                            <option value="291122">29/11/22</option>
+                            <option value="301122">30/11/22</option>
                             </select>
                         </div>
                     </div>
@@ -87,11 +114,37 @@
                     <div class="col-6">
                         <div class="input-group mb-3">
                             <label class="input-group-text" for="inputGroupSelect01">Date To:</label>
-                            <select class="form-select" id="inputGroupSelect01">
-                            <option selected>Choose...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <select name="date_to"class="form-select" id="inputGroupSelect01">
+                                <option value="011122">01/11/22</option>
+                                <option value="021122" selected>02/11/22</option>
+                                <option value="031122">03/11/22</option>
+                                <option value="041122">04/11/22</option>
+                                <option value="051122">05/11/22</option>
+                                <option value="061122">06/11/22</option>
+                                <option value="071122">07/11/22</option>
+                                <option value="081122">08/11/22</option>
+                                <option value="091122">09/11/22</option>
+                                <option value="101122">10/11/22</option>
+                                <option value="111122">11/11/22</option>
+                                <option value="121122">12/11/22</option>
+                                <option value="131122">13/11/22</option>
+                                <option value="141122">14/11/22</option>
+                                <option value="151122">15/11/22</option>
+                                <option value="161122">16/11/22</option>
+                                <option value="171122">17/11/22</option>
+                                <option value="181122">18/11/22</option>
+                                <option value="191122">19/11/22</option>
+                                <option value="201122">20/11/22</option>
+                                <option value="211122">21/11/22</option>
+                                <option value="221122">22/11/22</option>
+                                <option value="231122">23/11/22</option>
+                                <option value="241122">24/11/22</option>
+                                <option value="251122">25/11/22</option>
+                                <option value="261122">26/11/22</option>
+                                <option value="271122">27/11/22</option>
+                                <option value="281122">28/11/22</option>
+                                <option value="291122">29/11/22</option>
+                                <option value="301122">30/11/22</option>
                             </select>
                         </div>
                     </div>
@@ -99,19 +152,20 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <button type="button" class="btn btn-primary btn-lg">GENERATE</button>
+                        <button type="submit" class="btn btn-secondary btn-lg">GENERATE</button>
                     </div>
                 </div>
             </div>
+            </form>
 
             </div>
 
-            <div class="container-fluid">
+            <div class="container-fluid" style="display:{{display}}">
 
             <div class="row mt-5">
                 <div class="col-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header bg-primary">
                             Combined Bar Chart Representation
                           </div>
                           <div class="card-body">
@@ -121,7 +175,7 @@
                 </div>
                 <div class="col-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header  bg-primary">
                           Pie Chart Representation
                         </div>
                         <div class="card-body">
@@ -146,37 +200,43 @@
             <div class="row">
                 <div class="col-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header  bg-primary">
                           Line Graph Representation
                         </div>
                         <div class="card-body">
-                          
-
-
-
-
-
+                            <canvas id="linegraph"></canvas>
                         </div>
                       </div>
                 </div>
                 <div class="col-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header  bg-primary">
                           Scatter Representation
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-4">
+                            <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
                                     <canvas id="scatter1"></canvas>
                                 </div>
-                                <div class="col-4">
+                                  <div class="carousel-item">
                                     <canvas id="scatter2"></canvas>
                                 </div>
-                                <div class="col-4">
+                                  <div class="carousel-item">
                                     <canvas id="scatter3"></canvas>
                                 </div>
+                                </div>
+                                <button style="position: absolute; top: -10px; background: red; height: 50px;" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button style="position: absolute; left: 565px; top: -10px; background: red; height: 50px;" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
 
-                            </div>
+
                         </div>
                       </div>
                 </div>
@@ -187,55 +247,48 @@
             </div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
 
+    <br /><br /><br /><br />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+
+    {% if b_chart_avgdairy %}
+    
 
     const barchart = document.getElementById('barchart');
 
     new Chart(barchart, {
         type: 'bar',
         data: {
-        labels: ['Gluten', 'Sugar', 'Dairy', 'Nausea', 'Fatigue', 'Bloating'],
-        datasets: [{
-        axis: 'y',
-        label: '',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        fill: false,
-        backgroundColor: [
+  labels: ["Dairy", "Gluten", "Sugar", "Nausea", "Fatigue", "Bloating"],
+  datasets: 
+    [{
+    label: 'My First Dataset',
+    data: ['{{ b_chart_avgdairy }}', '{{ b_chart_avggluten }}', '{{ b_chart_avgsugar }}','{{ b_chart_avgnausea }}','{{ b_chart_avgfatigue }}','{{ b_chart_avgbloated }}'],
+    backgroundColor: [
         'rgba(103, 22, 176)',
         'rgba(7, 62, 23)',
         'rgba(9, 4, 70)',
         'rgba(212, 245, 200)',
         'rgba(195, 201, 254)',
         'rgba(254, 226, 226)',
-        ],
-        borderColor: [
-        'rgb(255, 99, 132)',
-        'rgb(255, 159, 64)',
-        'rgb(255, 205, 86)',
-        'rgb(75, 192, 192)',
-        'rgb(54, 162, 235)',
-        'rgb(153, 102, 255)',
-        'rgb(201, 203, 207)'
-        ],
-        borderWidth: 1
-    }]
-        },
-        options: {
-        indexAxis: 'y',
-        scales: {
-            y: {
-            beginAtZero: true
-            }
-        },
+    ],
+    borderWidth: 1
+  }]},
+  options: {
         plugins: {
-         legend: {
-            display: false
-         }
-      }
+            legend: {
+                display: false
+            },
+            title: {
+                    display: true,
+                    text: "Averages of Measurements over Time Period"
+                }
         }
-    });
+    }
+    })
 
     const piechart1 = document.getElementById('piechart1');
 
@@ -248,8 +301,8 @@
                 'Sugar'
             ],
     datasets: [{
-    label: 'My First Dataset',
-    data: [300, 50, 100],
+    label: 'Total Food Magnitudes for Time Period',
+    data: ['{{ p_chart_totaldairy }}', '{{ p_chart_totalgluten }}', '{{ p_chart_totalsugar }}'],
     backgroundColor: [
      'rgba(9, 4, 70)',
      'rgba(103, 22, 176)',
@@ -262,10 +315,19 @@
         indexAxis: 'y',
         scales: {
             y: {
-            beginAtZero: true
+            beginAtZero: true,
+            display: false,
             }
+        },
+
+        plugins: {
+            title: {
+                    display: true,
+                    text: "Total Food Intake Measurements for Time Period"
+                }
         }
-        }
+        
+        }, 
     });
 
     const piechart2 = document.getElementById('piechart2');
@@ -279,8 +341,8 @@
                 'Bloating'
             ],
     datasets: [{
-    label: 'My First Dataset',
-    data: [300, 50, 100],
+    label: 'Total Symptom Magnitudes for Time Period',
+    data: ['{{ p_chart_totalnausea }}', '{{ p_chart_totalfatigue }}', '{{ p_chart_totalbloating }}'],
     backgroundColor: [
         'rgba(212, 245, 200)',
         'rgba(195, 201, 254)',
@@ -290,10 +352,17 @@
   }]
         },
         options: {
+            plugins: {
+            title: {
+                    display: true,
+                    text: "Total Symptom Measurements for Time Period"
+                }
+        },
         indexAxis: 'y',
         scales: {
             y: {
-            beginAtZero: true
+            beginAtZero: true,
+            display: false,
             }
         }
         }
@@ -304,99 +373,350 @@
     const scatter2 = document.getElementById('scatter2');
     const scatter3 = document.getElementById('scatter3');
 
+
+
+    var nausea_dairy = {{ nausea_scatter_dairy }};
+    var nausea_dairy_data = []
+
+    if(nausea_dairy.length > 0){
+    for (var i = 0; i < nausea_dairy.length; i += 1) {
+        nausea_dairy_data.push({x: nausea_dairy[i][0], y: nausea_dairy[i][1]})
+    }}
+
+    var nausea_gluten= {{ nausea_scatter_gluten }};
+    var nausea_gluten_data = []
+
+    if(nausea_gluten.length > 0){
+    for (var i = 0; i < nausea_gluten.length; i += 1) {
+        nausea_gluten_data.push({x: nausea_gluten[i][0], y: nausea_gluten[i][1]})
+    }}
+
+
+    var nausea_sugar = {{ nausea_scatter_sugar }};
+    var nausea_sugar_data = []
+
+    if(nausea_sugar.length > 0){
+    for (var i = 0; i < nausea_sugar.length; i += 1) {
+        nausea_sugar_data.push({x: nausea_sugar[i][0], y: nausea_sugar[i][1]})
+    }
+}
+
+
+var nausea_dataset = [
+    {
+      label: 'Dairy',
+      data:  nausea_dairy_data,
+      backgroundColor: 'rgba(9, 4, 70)',
+    },
+    {
+      label: 'Gluten',
+      data:  nausea_gluten_data,
+      backgroundColor: 'rgba(103, 22, 176)',
+    },
+    {
+      label: 'Sugar',
+      data:  nausea_sugar_data,
+      backgroundColor: 'rgba(7, 62, 23)',
+    },
+  ]
+
+
+
+    var fatigue_dairy = {{ fatigue_scatter_dairy }};
+    var fatigue_dairy_data = []
+
+    if(fatigue_dairy.length > 0) {
+    for (var i = 0; i < fatigue_dairy.length; i += 1) {
+        fatigue_dairy_data.push({x: fatigue_dairy[i][0], y: fatigue_dairy[i][1]})
+    }
+}
+
+    var fatigue_gluten= {{ fatigue_scatter_gluten }};
+    var fatigue_gluten_data = []
+
+    if(fatigue_gluten.length > 0) {
+    for (var i = 0; i < fatigue_gluten.length; i += 1) {
+        fatigue_gluten_data.push({x: fatigue_gluten[i][0], y: fatigue_gluten[i][1]})
+    }
+    }
+    var fatigue_sugar = {{ fatigue_scatter_sugar }};
+    var fatigue_sugar_data = []
+
+
+    if(fatigue_sugar.length > 0) {
+    for (var i = 0; i < fatigue_sugar.length; i += 1) {
+        fatigue_sugar_data.push({x: fatigue_sugar[i][0], y: fatigue_sugar[i][1]})
+    }
+}
+    
+
+
+  var fatigue_dataset = [
+    {
+      label: 'Dairy',
+      data:  fatigue_dairy_data,
+      backgroundColor: 'rgba(9, 4, 70)',
+    },
+    {
+      label: 'Gluten',
+      data:  fatigue_gluten_data,
+      backgroundColor: 'rgba(103, 22, 176)',
+    },
+    {
+      label: 'Sugar',
+      data:  fatigue_sugar_data,
+      backgroundColor: 'rgba(7, 62, 23)',
+    },
+  ]
+
+
+
+
+var bloating_dairy = {{ bloating_scatter_dairy }};
+var bloating_dairy_data = []
+
+
+if(bloating_dairy.length > 0) {
+for (var i = 0; i < bloating_dairy.length; i += 1) {
+    bloating_dairy_data.push({x: bloating_dairy[i][0], y: bloating_dairy[i][1]})
+}
+}
+
+var bloating_gluten= {{ bloating_scatter_gluten }};
+var bloating_gluten_data = []
+
+if(bloating_gluten.length > 0) {
+for (var i = 0; i < bloating_gluten.length; i += 1) {
+    bloating_gluten_data.push({x: bloating_gluten[i][0], y: bloating_gluten[i][1]})
+}
+}
+
+
+var bloating_sugar = {{ bloating_scatter_sugar }};
+var bloating_sugar_data = []
+
+if(bloating_sugar.length > 0) {
+for (var i = 0; i < bloating_sugar.length; i += 1) {
+    bloating_sugar_data.push({x: bloating_sugar[i][0], y: bloating_sugar[i][1]})
+}
+}
+
+var bloating_dataset = [
+{
+  label: 'Dairy',
+  data:  bloating_dairy_data,
+  backgroundColor: 'rgba(9, 4, 70)',
+},
+{
+  label: 'Gluten',
+  data:  bloating_gluten_data,
+  backgroundColor: 'rgba(103, 22, 176)',
+},
+{
+  label: 'Sugar',
+  data:  bloating_sugar_data,
+  backgroundColor: 'rgba(7, 62, 23)',
+},
+]
+
+
+
     new Chart(scatter1, {
         type: 'scatter',
         data: {
-    datasets: [{
-        label: 'Scatter Dataset',
-        data: [{
-        x: -10,
-        y: 0
-        }, {
-        x: 0,
-        y: 10
-        }, {
-        x: 10,
-        y: 5
-        }, {
-        x: 0.5,
-        y: 5.5
-        }],
-        backgroundColor: 'rgb(255, 99, 132)'
-    }],
+    datasets: nausea_dataset,
     },
         options: {
+            ticks: {
+                stepSize: 1,
+                min: 0,
+                max: 5,
+            },
             scales: {
             x: {
-                type: 'linear',
-                position: 'bottom'
-            }
-            }
+                position: 'bottom',
+                min: 0,
+                max: 5,
+                title: {
+                    display: true,
+                    text: "Magnitude of Nausea (0-5)"
+                }
+            },
+            y: {
+                min: 0,
+                max: 6,
+                title: {
+                    display: true,
+                    text: "Magnitude of Food Intake (0-5)"
+                }
+            },
+            },
+            plugins: {title: {
+                display: true,
+                text: 'Nausea Scatterplot'
+            }}
         }
         });
+
 
         new Chart(scatter2, {
         type: 'scatter',
         data: {
-    datasets: [{
-        label: 'Scatter Dataset',
-        data: [{
-        x: -10,
-        y: 0
-        }, {
-        x: 0,
-        y: 10
-        }, {
-        x: 10,
-        y: 5
-        }, {
-        x: 0.5,
-        y: 5.5
-        }],
-        backgroundColor: 'rgb(255, 99, 132)'
-    }],
+    datasets: fatigue_dataset,
     },
-        options: {
+    options: {
+            ticks: {
+                stepSize: 1,
+                min: 0,
+                max: 5,
+            },
             scales: {
             x: {
-                type: 'linear',
-                position: 'bottom'
-            }
-            }
+                position: 'bottom',
+                min: 0,
+                max: 5,
+                title: {
+                    display: true,
+                    text: "Magnitude of Fatigue (0-5)"
+                }
+            },
+            y: {
+                min: 0,
+                max: 6,
+                title: {
+                    display: true,
+                    text: "Magnitude of Food Intake (0-5)"
+                }
+            },
+            },
+            plugins: {title: {
+                display: true,
+                text: 'Fatigue Scatterplot'
+            }}
         }
         });
+
 
 
         new Chart(scatter3, {
         type: 'scatter',
         data: {
-    datasets: [{
-        label: 'Scatter Dataset',
-        data: [{
-        x: -10,
-        y: 0
-        }, {
-        x: 0,
-        y: 10
-        }, {
-        x: 10,
-        y: 5
-        }, {
-        x: 0.5,
-        y: 5.5
-        }],
-        backgroundColor: 'rgb(255, 99, 132)'
-    }],
+    datasets: bloating_dataset,
     },
-        options: {
+    options: {
+            ticks: {
+                stepSize: 1,
+                min: 0,
+                max: 5,
+        },
             scales: {
             x: {
-                type: 'linear',
-                position: 'bottom'
-            }
-            }
+                position: 'bottom',
+                min: 0,
+                max: 5,
+                title: {
+                    display: true,
+                    text: "Magnitude of Bloating (0-5)"
+                },
+            },
+            y: {
+                min: 0,
+                max: 6,
+                title: {
+                    display: true,
+                    text: "Magnitude of Food Intake (0-5)"
+                }            
+            },
+            },
+            plugins: {title: {
+                display: true,
+                text: 'Bloating Scatterplot'
+            }}
         }
         });
+
+        
+
+    var dates = {{dates|safe}}; 
+    var dairy_ds = {{l_chart_dairy|safe}}; 
+    var gluten_ds = {{l_chart_gluten|safe}}; 
+    var sugar_ds = {{l_chart_sugar|safe}}; 
+    var nausea_ds = {{l_chart_nausea|safe}}; 
+    var fatigue_ds = {{l_chart_fatigue|safe}}; 
+    var bloating_ds = {{l_chart_bloating|safe}}; 
+
+    const linegraph = document.getElementById('linegraph');
+
+
+    new Chart(linegraph, {
+  type: 'line',
+  data: {
+    labels: dates,
+    datasets: [{ 
+        data: dairy_ds,
+        label: "Dairy",
+        borderColor: 'rgba(103, 22, 176)',
+        fill: false
+      }, { 
+        data: gluten_ds,
+        label: "Gluten",
+        borderColor: 'rgba(7, 62, 23)',
+        fill: false
+      }, { 
+        data: sugar_ds,
+        label: "Sugar",
+        borderColor: 'rgba(9, 4, 70)',
+        fill: false
+      }, { 
+        data: nausea_ds,
+        label: "Nausea",
+        borderColor: 'rgba(212, 245, 200)',
+        fill: false
+      }, { 
+        data: fatigue_ds,
+        label: "Fatigue",
+        borderColor: 'rgba(195, 201, 254)',
+        fill: false
+      },
+      { 
+        data: bloating_ds,
+        label: "Bloating",
+        borderColor: 'rgba(254, 226, 226)',
+        fill: false
+      }
+    ]
+  },
+  options: {
+    scales: {
+    x: {
+        title: {
+                    display: true,
+                    text: "Days over Time Period"
+                }
+    },
+    y : {
+        stepSize: 1,
+        min: 0,
+        title: {
+                    display: true,
+                    text: "Magnitude of Measurements"
+                }
+    }
+    },
+    plugins: {
+        title: {
+                    display: true,
+                    text: "All Food Intake and Symptom Data over Time Period"
+                }
+    }
+  }
+});
+
+
+{% endif %}
+
+
+        
 
 
 
