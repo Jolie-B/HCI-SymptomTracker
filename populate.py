@@ -10,11 +10,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 import django
 
 django.setup()
-from django.core.files import File
-from django.db.models import Q
 from tracker.models import *
-from datetime import date
-from django.contrib.auth.models import User
 from django.db.utils import IntegrityError
 
 def populate():

@@ -73,7 +73,6 @@ def statsload(request):
                 query_date = "0"+str(query_date)
                     
             if len(Day.objects.filter(date=str(query_date) + str(date_from[2:]))) == 0:
-                print("activated")
                 raw_data.append([{'date': str(query_date) + str(date_from[2:]), 'gluten': 0, 'dairy': 0, 'sugar': 0, 'nausea': 0, 'fatigue': 0, 'bloated': 0}])
             else:
                 raw_data.append(list(Day.objects.filter(date=str(query_date) + str(date_from[2:])).values('date','gluten', 'dairy','sugar', 'nausea', 'fatigue', 'bloated')))
