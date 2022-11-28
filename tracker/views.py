@@ -47,6 +47,9 @@ def date(request, day_slug):
 
 
 def statsload(request):
+    if not request.POST:
+        return redirect(reverse('index'))
+
     date_from = request.POST["date_from"]
     date_to = request.POST["date_to"]
 
