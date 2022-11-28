@@ -208,6 +208,7 @@ def statsload(request):
     return render(request, 'stats.html', context_dict)
 
 def save_data(request):
+    print("test")
     if request.method == 'POST':
         request.POST._mutable = True
 

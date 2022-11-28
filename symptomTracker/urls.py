@@ -20,6 +20,6 @@ from tracker import views
 urlpatterns = [
     path('', include('tracker.urls')),
     path('tracker/', include('tracker.urls')),
-    path('save_data', views.save_data, name='save_data'),
+    path('save_data/', views.save_data, name='save_data'),
     path('admin/', admin.site.urls),
 ]
