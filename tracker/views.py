@@ -182,10 +182,10 @@ def statsload(request):
         
         if day[0]['bloated'] > 0:
             if day[0]['dairy'] > 0:
-                bloating_scatter_sugar.append([day[0]['bloated'], day[0]['dairy']])
+                bloating_scatter_dairy.append([day[0]['bloated'], day[0]['dairy']])
             
             if day[0]['gluten'] > 0:
-                bloating_scatter_sugar.append([day[0]['bloated'], day[0]['gluten']])
+                bloating_scatter_gluten.append([day[0]['bloated'], day[0]['gluten']])
             
             if day[0]['sugar'] > 0:
                 bloating_scatter_sugar.append([day[0]['bloated'], day[0]['sugar']])
